@@ -1,6 +1,8 @@
 (function () {
   "use strict";
 
+  document.documentElement.classList.add("js-ready");
+
   /* =====================================================
      CONFIG — ganti nilai di bawah ini sesuai kebutuhan
      ===================================================== */
@@ -36,7 +38,7 @@
         ["Minuman Serbuk Rasa Apel Plus Ginseng.", "Meningkatkan stamina, vitalitas, dan kejantanan pria, melancarkan peredaran darah, mengatasi disfungsi seksual.", ["Membantu meningkatkan stamina dan vitalitas pria.", "Mendukung kelancaran peredaran darah.", "Membantu menjaga performa dan kebugaran tubuh."], "Tampilkan manfaat REVIT"],
         ["Serum Pencerah Wajah & Body Lotion.", "Mencerahkan kulit tubuh & area lipatan gelap, melembabkan, mengencangkan, menyamarkan flek hitam/bekas jerawat, melindungi dari sinar UV.", ["Membantu mencerahkan kulit dan area lipatan.", "Melembabkan serta membantu mengencangkan kulit.", "Menyamarkan flek hitam dan bekas jerawat.", "Membantu melindungi kulit dari sinar UV."], "Tampilkan manfaat Face & Body Serum"]
       ],
-      about: ["Tentang", "Tentang Perusahaan", "Renner Syariah hadir sebagai brand dengan pilihan produk untuk kebutuhan kesehatan, kecantikan, dan pertanian. Halaman ini menyajikan informasi pengenalan brand dan katalog produk secara ringkas agar pengunjung dapat menemukan produk yang sesuai.", "Informasi produk, manfaat, kategori, dan legalitas ditampilkan sebagai panduan awal. Untuk informasi terbaru mengenai perusahaan, ketersediaan produk, dan ketentuan pembelian, silakan lakukan konfirmasi melalui kontak resmi yang tersedia di website ini.", "Masri Jono Mpeti berperan sebagai mitra reseller dan distributor yang membantu pelanggan memperoleh informasi produk serta menghubungkan calon pelanggan dengan layanan pemesanan.", "Untuk keputusan penggunaan produk, selalu perhatikan label, aturan pakai, nomor izin edar, dan petunjuk resmi pada kemasan. Hindari penggunaan klaim sebagai pengganti saran tenaga kesehatan.", "Hubungi Masri Jono Via WhatsApp"],
+      about: ["Profil Mitra", "Masri Jono Mpeti", "Masri Jono Mpeti adalah mitra reseller dan distributor resmi Renner Syariah yang siap membantu pelanggan menemukan produk sesuai kebutuhan kesehatan, kecantikan, dan pertanian.", "Melalui layanan yang informatif dan mudah dihubungi, Masri membantu calon pelanggan memperoleh informasi produk, manfaat, ketersediaan, serta proses pemesanan dengan lebih jelas.", "Untuk keputusan penggunaan produk, selalu perhatikan label, aturan pakai, nomor izin edar, dan petunjuk resmi pada kemasan. Hindari penggunaan klaim sebagai pengganti saran tenaga kesehatan.", "", "Hubungi Masri Jono Via WhatsApp"],
       cta: ["Tertarik dengan Produk Renner Syariah?", "Hubungi Masri Jono Mpeti untuk mendapatkan informasi produk dan pemesanan.", "Chat via WhatsApp"],
       footerRole: "Mitra Reseller & Distributor Resmi Renner Syariah"
     },
@@ -56,7 +58,7 @@
         ["Apple-Flavored Powder Drink with Ginseng.", "Helps improve men's stamina and vitality, supports blood circulation, and addresses sexual dysfunction.", ["Helps improve men's stamina and vitality.", "Supports healthy blood circulation.", "Helps maintain performance and physical fitness."], "Show REVIT benefits"],
         ["Brightening Face Serum & Body Lotion.", "Brightens body skin and dark areas, moisturizes, firms, helps reduce dark spots and acne marks, and protects from UV rays.", ["Helps brighten skin and dark areas.", "Moisturizes and helps firm the skin.", "Helps reduce dark spots and acne marks.", "Helps protect skin from UV rays."], "Show Face & Body Serum benefits"]
       ],
-      about: ["About", "About the Company", "Renner Syariah is a brand offering products for health, beauty, and agriculture needs. This page provides a concise introduction to the brand and its product catalog so visitors can find suitable products.", "Product information, benefits, categories, and legal details are provided as an initial guide. For the latest company information, product availability, and purchase terms, please confirm through the official contact available on this website.", "Masri Jono Mpeti serves as a reseller and distributor partner who helps customers get product information and connects prospective customers with ordering services.", "Before using any product, always check the label, directions, registration number, and official instructions on the packaging. Product claims should not replace professional health advice.", "Contact Masri Jono via WhatsApp"],
+      about: ["Partner Profile", "Masri Jono Mpeti", "Masri Jono Mpeti is an official Renner Syariah reseller and distributor partner who helps customers find products for their health, beauty, and agriculture needs.", "Through informative and accessible service, Masri helps prospective customers understand product information, benefits, availability, and the ordering process more clearly.", "Before using any product, always check the label, directions, registration number, and official instructions on the packaging. Product claims should not replace professional health advice.", "", "Contact Masri Jono via WhatsApp"],
       cta: ["Interested in Renner Syariah Products?", "Contact Masri Jono Mpeti for product information and orders.", "Chat via WhatsApp"],
       footerRole: "Official Renner Syariah Reseller & Distributor Partner"
     }
@@ -77,11 +79,13 @@
     navLinks.forEach((link, index) => { link.textContent = content.nav[index]; });
     setLastText(document.getElementById("navCta"), content.navCta);
     const intro = document.querySelector(".company-intro-copy");
-    intro.querySelector(".company-kicker").textContent = content.intro[0];
-    intro.querySelector(".company-summary").textContent = content.intro[1];
-    intro.querySelector(".company-motto").textContent = `"${content.intro[6]}"`;
-    intro.querySelectorAll(".company-credentials span").forEach((item, index) => { item.textContent = content.intro[index + 2]; });
-    intro.querySelector(".btn-company").textContent = content.intro[5];
+    if (intro) {
+      intro.querySelector(".company-kicker").textContent = content.intro[0];
+      intro.querySelector(".company-summary").textContent = content.intro[1];
+      intro.querySelector(".company-motto").textContent = `"${content.intro[6]}"`;
+      intro.querySelectorAll(".company-credentials span").forEach((item, index) => { item.textContent = content.intro[index + 2]; });
+      intro.querySelector(".btn-company").textContent = content.intro[5];
+    }
     const hero = document.querySelector(".hero-text");
     hero.querySelector(".hero-role").textContent = content.hero[0];
     hero.querySelector(".hero-headline").textContent = content.hero[1];
@@ -301,17 +305,19 @@
      BACK TO TOP BUTTON
      ===================================================== */
   const backToTopBtn = document.getElementById("backToTopBtn");
-  function updateBackToTop() {
-    if (window.scrollY > 500) {
-      backToTopBtn.classList.add("visible");
-    } else {
-      backToTopBtn.classList.remove("visible");
+  if (backToTopBtn) {
+    function updateBackToTop() {
+      if (window.scrollY > 500) {
+        backToTopBtn.classList.add("visible");
+      } else {
+        backToTopBtn.classList.remove("visible");
+      }
     }
-  }
-  updateBackToTop();
-  window.addEventListener("scroll", updateBackToTop, { passive: true });
+    updateBackToTop();
+    window.addEventListener("scroll", updateBackToTop, { passive: true });
 
-  backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 })();
