@@ -172,8 +172,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: background 0.4s ease, box-shadow 0.4s ease, height 0.3s ease;
 }
 .navbar.scrolled {
-  background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(10px);
+  background: #ffffff;
+  backdrop-filter: none;
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
   height: var(--nav-height);
   border-bottom: 1px solid rgba(0,104,55,0.08);
@@ -181,10 +181,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .navbar.scrolled .brand-name,
 .navbar.scrolled .nav-link,
 .navbar.scrolled .language-option,
-.navbar.scrolled .language-switcher,
-.navbar.scrolled .hamburger span {
+.navbar.scrolled .language-switcher {
   color: var(--green-dark);
   background: transparent;
+}
+.navbar.scrolled .hamburger span {
+  background: var(--green-dark) !important;
+  opacity: 1 !important;
 }
 .navbar.scrolled .nav-link::after {
   background: var(--green);
@@ -292,8 +295,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (max-width: 860px) {
   .navbar.scrolled .hamburger {
     display: flex;
-    visibility: visible;
-    opacity: 1;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 }
 
