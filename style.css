@@ -674,6 +674,328 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin: 0;
 }
 
+/* -------- four pillars -------- */
+.pillars {
+  padding: 96px 32px;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(197,155,39,0.09), transparent 32%),
+    linear-gradient(180deg, #f7f8f5 0%, #eef3ee 100%);
+}
+.pillars-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.pillars .section-head {
+  margin-bottom: 42px;
+}
+.pillars .section-title {
+  margin: 0 0 10px;
+  color: var(--gold);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+.pillars .section-subtitle {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--text);
+  font-size: clamp(0.98rem, 1.55vw, 1.15rem);
+  line-height: 1.55;
+  font-weight: 500;
+}
+.pillars-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+.pillar-card {
+  position: relative;
+  overflow: visible;
+  padding: 34px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.pillar-legal {
+  width: 100%;
+}
+.pillar-card::before {
+  display: none;
+}
+.pillar-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.pillar-number {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  place-items: center;
+  border: 1px solid rgba(197,155,39,0.45);
+  border-radius: 50%;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.pillar-label {
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+.pillar-heading h3 {
+  margin: 2px 0 0;
+  color: var(--green-dark);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+.pillar-card > p {
+  max-width: 860px;
+  margin: 0 0 18px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+.pillar-credentials,
+.pillar-benefits {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pillar-credentials {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.pillar-legal-documents {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  margin: 24px 0 18px;
+}
+.pillar-legal-document {
+  min-width: 0;
+  margin: 0;
+}
+.pillar-legal-document-panel,
+.pillar-legal-document-dsn {
+  padding: 12px;
+  border: 1px solid rgba(0,104,55,0.12);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+.pillar-legal-document-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  width: min(100%, 690px);
+  margin: 0 auto;
+}
+.pillar-legal-document img {
+  display: block;
+  width: 100%;
+  height: 172px;
+  object-fit: contain;
+}
+.pillar-legal-document-image {
+  overflow: hidden;
+  width: min(100%, 190px);
+  margin: 0 auto;
+  aspect-ratio: 1171 / 1580;
+}
+.pillar-legal-document-crop img {
+  width: 200%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+}
+.pillar-legal-document-apli img {
+  transform: translateX(-50%);
+}
+.pillar-legal-document-dsn {
+  width: min(100%, 690px);
+  margin: 0 auto;
+}
+.pillar-legal-document-dsn img {
+  height: auto;
+  object-fit: contain;
+}
+.pillar-legal-document figcaption {
+  margin-top: 8px;
+  color: var(--green-dark);
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+}
+.pillar-award-title {
+  margin: 18px 0 0;
+  color: var(--green-dark);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+.pillar-credentials li {
+  padding: 11px 12px;
+  border: 1px solid rgba(0,104,55,0.12);
+  border-radius: var(--radius-sm);
+  background: #f8faf7;
+  color: var(--green-dark);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+.pillar-video {
+  width: 100%;
+  max-width: 690px;
+  aspect-ratio: 16 / 9;
+  margin: 12px auto 0;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+.pillar-video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.pillar-note {
+  display: block;
+  margin-top: 14px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+.pillar-product-images {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  align-items: center;
+  min-height: 130px;
+  margin: 18px 0 8px;
+}
+.pillar-product-images img {
+  width: 100%;
+  height: 112px;
+  object-fit: contain;
+}
+.pillar-card h4 {
+  margin: 0 0 12px;
+  color: var(--green);
+  font-size: 0.95rem;
+}
+.pillar-benefits li {
+  position: relative;
+  padding: 0 0 9px 20px;
+  border-bottom: 1px solid rgba(0,104,55,0.1);
+  color: var(--text);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+.pillar-benefits li::before {
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  content: "✦";
+}
+.pillar-card.pillar-products,
+.pillar-card.pillar-marketing,
+.pillar-card.pillar-academy {
+  width: 100%;
+  overflow: visible;
+  padding: 46px 0 48px;
+  border: 0;
+  border-top: 1px solid rgba(0,104,55,0.16);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.pillar-card.pillar-products::before,
+.pillar-card.pillar-marketing::before,
+.pillar-card.pillar-academy::before {
+  display: none;
+}
+.pillar-card.pillar-products .pillar-heading,
+.pillar-card.pillar-marketing .pillar-heading,
+.pillar-card.pillar-academy .pillar-heading {
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.pillar-card.pillar-products .pillar-number,
+.pillar-card.pillar-marketing .pillar-number,
+.pillar-card.pillar-academy .pillar-number {
+  display: block;
+  width: auto;
+  height: auto;
+  flex: 0 0 auto;
+  padding-top: 4px;
+  border: 0;
+  border-radius: 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+}
+.pillar-card.pillar-products .pillar-heading h3,
+.pillar-card.pillar-marketing .pillar-heading h3,
+.pillar-card.pillar-academy .pillar-heading h3 {
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+}
+.pillar-card.pillar-products > p,
+.pillar-card.pillar-marketing > p,
+.pillar-card.pillar-academy > p {
+  max-width: 860px;
+  font-size: 0.96rem;
+}
+.pillar-card.pillar-products .pillar-product-images {
+  min-height: 150px;
+  margin-top: 24px;
+}
+.pillar-card.pillar-products .pillar-product-images img {
+  height: 132px;
+}
+.pillar-card.pillar-marketing h4 {
+  margin: 30px 0 12px;
+  color: var(--green-dark);
+  text-align: center;
+}
+.pillar-card.pillar-academy h4 {
+  margin-top: 30px;
+  color: var(--green-dark);
+}
+.pillar-card.pillar-marketing .pillar-benefits,
+.pillar-card.pillar-academy .pillar-benefits {
+  display: block;
+}
+.pillar-card.pillar-marketing .pillar-benefits li,
+.pillar-card.pillar-academy .pillar-benefits li {
+  padding: 14px 0 14px 22px;
+  border-bottom-color: rgba(0,104,55,0.14);
+  font-size: 0.92rem;
+}
+.pillar-card.pillar-marketing .pillar-benefits li::before,
+.pillar-card.pillar-academy .pillar-benefits li::before {
+  top: 24px;
+  width: 12px;
+  height: 1px;
+  background: var(--gold);
+  content: "";
+}
+.pillar-academy-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 22px auto 0;
+}
+
 /* =====================================================
    SECTION HEADS (shared)
    ===================================================== */
@@ -1234,6 +1556,25 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (max-width: 640px) {
   .product-grid { grid-template-columns: 1fr; }
   .trust-inner { grid-template-columns: 1fr; }
+  .pillars { padding: 72px 20px; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .pillar-card { padding: 24px 0; }
+  .pillar-legal { width: 100%; }
+  .pillar-legal-documents { gap: 10px; }
+  .pillar-legal-document-panel,
+  .pillar-legal-document-dsn { padding: 8px; }
+  .pillar-legal-document-pair { gap: 8px; }
+  .pillar-legal-document img { height: 130px; }
+  .pillar-legal-document-crop img { height: 100%; }
+  .pillar-legal-document-dsn img { height: auto; }
+  .pillar-legal-document figcaption { font-size: 0.68rem; }
+  .pillar-product-images { gap: 4px; min-height: 98px; }
+  .pillar-product-images img { height: 84px; }
+  .pillar-card.pillar-products,
+  .pillar-card.pillar-marketing,
+  .pillar-card.pillar-academy { padding: 36px 0 38px; }
+  .pillar-card.pillar-products .pillar-product-images { min-height: 98px; }
+  .pillar-card.pillar-products .pillar-product-images img { height: 84px; }
   .navbar-inner { padding: 0 20px; }
   .hero, .catalog, .about, .cta-section { padding-left: 20px; padding-right: 20px; }
   .company-intro, .company-story { padding-left: 20px; padding-right: 20px; }

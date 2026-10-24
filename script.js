@@ -1,8 +1,6 @@
 (function () {
   "use strict";
 
-  document.documentElement.classList.add("js-ready");
-
   /* =====================================================
      CONFIG — ganti nilai di bawah ini sesuai kebutuhan
      ===================================================== */
@@ -63,6 +61,23 @@
       footerRole: "Official Renner Syariah Reseller & Distributor Partner"
     }
   };
+
+  function getSavedLanguage() {
+    try {
+      return localStorage.getItem("renner-language");
+    } catch (error) {
+      console.warn("Preferensi bahasa tidak dapat dibaca dari penyimpanan browser.", error);
+      return null;
+    }
+  }
+
+  function saveLanguage(language) {
+    try {
+      localStorage.setItem("renner-language", language);
+    } catch (error) {
+      console.warn("Preferensi bahasa tidak dapat disimpan di browser.", error);
+    }
+  }
 
   function setLastText(element, text) {
     const textNode = Array.from(element.childNodes).find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
@@ -128,7 +143,7 @@
       button.classList.toggle("is-active", active);
       button.setAttribute("aria-pressed", String(active));
     });
-    localStorage.setItem("renner-language", language);
+    saveLanguage(language);
   }
 
   /* =====================================================
@@ -195,7 +210,7 @@
       });
     });
   });
-  applyLanguage(localStorage.getItem("renner-language") || "id");
+  applyLanguage(getSavedLanguage() || "id");
 
   // Product promo buttons — each opens WhatsApp to request more information about the product
   document.querySelectorAll(".product-order").forEach((btn) => {
@@ -320,4 +335,6 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
+
+  document.documentElement.classList.add("js-ready");
 })();
